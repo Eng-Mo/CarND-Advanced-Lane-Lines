@@ -34,12 +34,19 @@ I used a combination of color and gradient thresholds to generate a binary image
 
 1. I computed the gradiant of gray image of the frame in respective x & y. Also, graduate magnitude was calculated and minimum threshold was applied as in the function `SobelThr(img,n)`. The ouput binary Image segmented the Lane clearly in good lighting condition but with some noise in distorted frame with high lightness.
 ![title][image3]
+
 Sobel gray threshold Frame1
+
 ![title][image4]
+
 1. I made color threhsold for white and yellow color from diffrent color space as shown in `CTHR()` in `LaneDetect.py`
+
 Color threshold
+
 ![title][image5]
+
 Combined threshold
+
 ![title][image6]
 
 #### 3.Perspective transform.
@@ -125,11 +132,17 @@ The curvature was calculated by chosing the maximum y-value corresponding to the
 #### 6. Final result.
 The following are the results after unwarping the frames in two diffrent condditions. 
 Result for test images
+
 ![alt text] [image12]
+
 ![alt text] [image13]
+
 ![alt text] [image14]
+
 ![alt text] [image15]
+
 ![alt text] [image16]
+
 ![alt text] [image17]
 
 
