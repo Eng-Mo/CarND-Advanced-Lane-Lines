@@ -107,8 +107,9 @@ def SobelThr(img):                     # Sobel edge detection extraction
 
 def combinI(b1,b2):     ##Combine color threshold + Sobel edge detection
 
-    combined = np.zeros_like(b2)
-    combined=b1|b2
+    combined = np.zeros_like(b1)
+    combined[((b1 == 1)|(b2 == 255)) ] = 1
+
 
     
     return combined
