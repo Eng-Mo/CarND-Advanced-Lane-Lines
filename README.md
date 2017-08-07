@@ -17,12 +17,9 @@ This project aims to detect Lane lines robustly during high lighting distortion.
 [image9]: ./output_images/window-test1.png
 [image10]: ./output_images/Lines-test1.png
 [image11]: ./output_images/Lane-test1.png
-[image12]: ./output_images/result_test1.png
-[image13]: ./output_images/result_test2.png
-[image14]: ./output_images/result_test3.png
-[image15]: ./output_images/result_test4.png
-[image16]: ./output_images/result_test5.png
-[image17]: ./output_images/result_test6.png
+[image12]: ./output_images/result.jpg
+
+
 
 #### 1. Camera calibration.
 
@@ -135,15 +132,6 @@ Result for test images
 
 ![alt text] [image12]
 
-![alt text] [image13]
-
-![alt text] [image14]
-
-![alt text] [image15]
-
-![alt text] [image16]
-
-![alt text] [image17]
 
 
 ---
