@@ -63,61 +63,13 @@ The code for my perspective transform includes a function called `prespectI()`. 
 ```
 This resulted `warped ` image as the following image after applying `cv2.getPerspectiveTransform(src, dst)` that return Image matrix `M` and feed it to `cv2.warpPerspective()`.
 
-Warped image:
-    
-    ![alt text] [image8]
+![alt text] [image8]
 
 #### 4. Line fitting
-`LineFitting()` in cell `[137]`idintifys the Lane pixels by computing the histogram of half buttom the image and extract 2 high peaks. After, 9 sliding windows for each lane pixels and extract the points of each lane lane lines with a 2nd order polynomial kinda like this:
+`LineFitting()` in cell `[137]`idintifys the Lane pixels by computing the histogram of half buttom the image and extract 2 high peaks. After, 9 sliding windows for each lane pixels and extract the points of each lane lane lines with a 2nd order polynomial:
 
-```python
-for window in range(nwindows):
-        # Identify window boundaries in x and y (and right and left)
-        win_y_low = wimgun.shape[0] - (window+1)*window_height
-        win_y_high = wimgun.shape[0] - window*window_height
-        win_xleft_low = leftx_current - margin
-        win_xleft_high = leftx_current + margin
-        win_xright_low = rightx_current - margin
-        win_xright_high = rightx_current + margin
-        # Draw the windows on the visualization image
-        cv2.rectangle(out_img,(win_xleft_low,win_y_low),(win_xleft_high,win_y_high),(0,255,0), 2) 
-        cv2.rectangle(out_img,(win_xright_low,win_y_low),(win_xright_high,win_y_high),(0,255,0), 2) 
-        # Identify the nonzero pixels in x and y within the window
-        good_left_inds = ((nonzeroy >= win_y_low) & (nonzeroy < win_y_high) & (nonzerox >= win_xleft_low) & (nonzerox < win_xleft_high)).nonzero()[0]
-        good_right_inds = ((nonzeroy >= win_y_low) & (nonzeroy < win_y_high) & (nonzerox >= win_xright_low) & (nonzerox < win_xright_high)).nonzero()[0]
-        # Append these indices to the lists
-
-        left_lane_inds.append(good_left_inds)
-        right_lane_inds.append(good_right_inds)
-        # If you found > minpix pixels, recenter next window on their mean position
-        if len(good_left_inds) > minpix:
-            leftx_current = np.int(np.mean(nonzerox[good_left_inds]))
-        if len(good_right_inds) > minpix:        
-            rightx_current = np.int(np.mean(nonzerox[good_right_inds]))
-
-    # Concatenate the arrays of indices
-    left_lane_inds = np.concatenate(left_lane_inds)
-    right_lane_inds = np.concatenate(right_lane_inds)
-    # Again, extract left and right line pixel positions
-    leftx = nonzerox[left_lane_inds]
-    lefty = nonzeroy[left_lane_inds] 
-    rightx = nonzerox[right_lane_inds]
-    righty = nonzeroy[right_lane_inds]
-
-    # Fit a second order polynomial to each
-    left_fit = np.polyfit(lefty, leftx, 2)
-    right_fit = np.polyfit(righty, rightx, 2)
-    # Generate x and y values for plotting
-    ploty = np.linspace(0, wimgun.shape[0]-1, wimgun.shape[0] )
-    left_fitx = left_fit[0]*ploty**2 + left_fit[1]*ploty + left_fit[2]
-    right_fitx = right_fit[0]*ploty**2 + right_fit[1]*ploty + right_fit[2]
-```
-
-Window Fitting:  
 ![alt text] [image9]
-Line Fitting:
 ![alt text] [image10]
-Line Fitting:
 ![alt text] [image11]
 
 #### 5. Curvature calculation
@@ -129,16 +81,13 @@ The curvature was calculated by chosing the maximum y-value corresponding to the
 ```
 
 #### 6. Final result.
-The following are the results after unwarping the frames in two diffrent condditions. 
-Result for test images:
+
+Result for test images.
 ![alt text] [image12]
-
-
 
 ---
 
 ### Pipeline (video)
-
 
 Here's a [link to my video result](https://youtu.be/3PKT84lurqE) or download `project_output.mp4`
 
