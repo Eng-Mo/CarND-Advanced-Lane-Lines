@@ -113,13 +113,12 @@ for window in range(nwindows):
     right_fitx = right_fit[0]*ploty**2 + right_fit[1]*ploty + right_fit[2]
 ```
 
-Window Fitting:
-    
-    ![alt text] [image9]
+Window Fitting:  
+![alt text] [image9]
 Line Fitting:
-    ![alt text] [image10]
+![alt text] [image10]
 Line Fitting:
-    ![alt text] [image11]
+![alt text] [image11]
 
 #### 5. Curvature calculation
 The curvature was calculated by chosing the maximum y-value corresponding to the bottom of the image 
@@ -132,8 +131,7 @@ The curvature was calculated by chosing the maximum y-value corresponding to the
 #### 6. Final result.
 The following are the results after unwarping the frames in two diffrent condditions. 
 Result for test images:
-    
-    ![alt text] [image12]
+![alt text] [image12]
 
 
 
