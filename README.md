@@ -63,8 +63,9 @@ The code for my perspective transform includes a function called `prespectI()`. 
 ```
 This resulted `warped ` image as the following image after applying `cv2.getPerspectiveTransform(src, dst)` that return Image matrix `M` and feed it to `cv2.warpPerspective()`.
 
-Warped image
-![alt text] [image8]
+Warped image:
+    
+    ![alt text] [image8]
 
 #### 4. Line fitting
 `LineFitting()` in cell `[137]`idintifys the Lane pixels by computing the histogram of half buttom the image and extract 2 high peaks. After, 9 sliding windows for each lane pixels and extract the points of each lane lane lines with a 2nd order polynomial kinda like this:
@@ -112,12 +113,13 @@ for window in range(nwindows):
     right_fitx = right_fit[0]*ploty**2 + right_fit[1]*ploty + right_fit[2]
 ```
 
-Window Fitting 
-![alt text] [image9]
-Line Fitting 
-![alt text] [image10]
-Line Fitting 
-![alt text] [image11]
+Window Fitting:
+    
+    ![alt text] [image9]
+Line Fitting:
+    ![alt text] [image10]
+Line Fitting:
+    ![alt text] [image11]
 
 #### 5. Curvature calculation
 The curvature was calculated by chosing the maximum y-value corresponding to the bottom of the image 
@@ -129,9 +131,9 @@ The curvature was calculated by chosing the maximum y-value corresponding to the
 
 #### 6. Final result.
 The following are the results after unwarping the frames in two diffrent condditions. 
-Result for test images
-
-![alt text] [image12]
+Result for test images:
+    
+    ![alt text] [image12]
 
 
 
