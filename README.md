@@ -63,7 +63,7 @@ This produced `warped ` image as the following image after applying `cv2.getPers
 ![alt text][image5]
 
 #### 4. Line fitting
-`LineFitting()`idintifys the lane points and fit a second order polynomial to both right and left lane and the steps clearly commetted in `LaneDetect.py`. it started by computing the histogram of the half buttom of the image and extract 2 high peaks of x-position for right and left lane. After, 9 sliding windows to idintify lane pixels. Each one centered on the midpoint of the pixels from the window below. Extract the points of each lane lines using `polyfit()` that fits a 2nd order polynomial to each set of pixel:
+`LineFitting()`idintifys the lane points and fit a second order polynomial to both right and left lane and the steps clearly commetted in `LaneDetect.py`. it started by computing the histogram of the half buttom of the image and extract 2 high peaks of x-position for right and left lane. After, 9 sliding windows to idintify lane pixels. Each one centered on the midpoint of the pixels from the window below. Extract the points of each lane lines using `polyfit()` that fits a 2nd order polynomial to each set of pixel.
 ![alt text][image6]
 ![alt text][image7]
 
