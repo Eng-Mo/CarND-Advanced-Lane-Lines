@@ -40,7 +40,7 @@ def region_of_interest(img):
 
 # In[3]:
 
-def CTHR(img):               # Threshold Yellow anf White Colos from RGB, HSV, HLS color spaces
+def ColorThreshold(img):               # Threshold Yellow anf White Colos from RGB, HSV, HLS color spaces
     
     HSV = cv2.cvtColor(img, cv2.COLOR_RGB2HSV)
 
@@ -80,7 +80,7 @@ def SobelThr(img):                     # Sobel edge detection extraction
    
     
     binary_outputabsx = np.zeros_like(scaled_sobelx)
-    binary_outputabsx[(scaled_sobelx >= 20) & (scaled_sobelx <= 255)] = 1
+    binary_outputabsx[(scaled_sobelx >= 70) & (scaled_sobelx <= 255)] = 1
    
     
     
@@ -108,7 +108,7 @@ def SobelThr(img):                     # Sobel edge detection extraction
 def combinI(b1,b2):     ##Combine color threshold + Sobel edge detection
 
     combined = np.zeros_like(b1)
-    combined[((b1 == 255)|(b2 == 1)) ] = 1
+    combined[((b1 == 1)|(b2 == 255)) ] = 1
 
 
     
@@ -325,13 +325,12 @@ def LineFitting(wimgun):                  #Fit Lane Lines
 #    # left_curverad = ((1 + (2*left_fit[0]*y_eval + left_fit[1])**2)**1.5) / np.absolute(2*left_fit[0])
 #    # right_curverad = ((1 + (2*right_fit[0]*y_eval + right_fit[1])**2)**1.5) / np.absolute(2*right_fit[0])
     
-    
-#     camera_center=wimgun.shape[0]/2
+    camera_center=wimgun.shape[0]/2
 #     #lane_center = (right_fitx[719] + left_fitx[719])/2    
-    lane_offset = (1280/2 - (left_fitx[-1]+right_fitx[-1])/2)*xm_per_pix
+    car_position = (camera_center- (left_fitx[-1]+right_fitx[-1])/2)*xm_per_pix
 #     print(left_curverad1, right_curverad1, lane_offset)
 
-    return (left_fit, ploty,right_fit,left_curverad, right_curverad,lane_offset)
+    return (left_fit, ploty,right_fit,left_curverad, right_curverad,car_position)
 
    
 
