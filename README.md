@@ -80,8 +80,6 @@ The curvature was calculated by choosing the maximum y-value corresponding to th
 
 #### 6. Final result.
 ![alt text][image8]
-
-Result for test images.
 ![alt text][image9]
 
 ---
