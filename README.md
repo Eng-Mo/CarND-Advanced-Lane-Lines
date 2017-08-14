@@ -33,7 +33,7 @@ The code for this step is contained in `def undistorT(imgorg)` function. I start
 
 ![title][image1]
 
-#### 2. Image segmentation.
+#### 2. Image segmentation
 I used a combination of color and gradient thresholds to generate a binary image. I made threshold in two levels:
 1. I computed the gray image gradient of the frame in respective x & y. Also, graduate magnitude was calculated and minimum threshold was applied as in the function `SobelThr(img)`. The ouput binary Image segmented the Lane clearly but under the lightness noise the the segmentation not very clear as following
 2. I made color threshold for white and yellow color from `HSV,HLS and RGB` color spaces as shown in `ColorThreshold()`.
@@ -60,12 +60,12 @@ The code for my perspective transform includes a function called `prespectI()`. 
 ```
 This produced `warped ` image as the following image after applying `cv2.getPerspectiveTransform(src, dst)` that return Image matrix `M` and feed it to `cv2.warpPerspective()`.
 
-![alt text] [image5]
+![alt text][image5]
 
 #### 4. Line fitting
 `LineFitting()`idintifys the lane points and fit a second order polynomial to both right and left lane and the steps clearly commetted in `LaneDetect.py`. it started by computing the histogram of the half buttom of the image and extract 2 high peaks of x-position for right and left lane. After, 9 sliding windows to idintify lane pixels. Each one centered on the midpoint of the pixels from the window below. Extract the points of each lane lines using `polyfit()` that fits a 2nd order polynomial to each set of pixel:
-![alt text] [image6]
-![alt text] [image7]
+![alt text][image6]
+![alt text][image7]
 
 #### 5. Curvature calculation
 The curvature was calculated by choosing the maximum y-value corresponding to the bottom of the image `[y=719]`. Calculate the average curvature and then calculate the vehicle centre offset to the lane by assuming the midpoint image is the camera position. 
@@ -79,10 +79,10 @@ The curvature was calculated by choosing the maximum y-value corresponding to th
 ```
 
 #### 6. Final result.
-![alt text] [image8]
+![alt text][image8]
 
 Result for test images.
-![alt text] [image9]
+![alt text][image9]
 
 ---
 
